@@ -125,6 +125,12 @@ a {
     font-weight: 300;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+}
+
 .header-nav {
     display: flex;
     gap: 0.8vw;
@@ -140,6 +146,17 @@ a {
     background: rgba(255, 255, 255, 0.05);
     transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     font-family: var(--font-btn);
+}
+
+.header-github {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.4vw;
+    transition: color 0.2s ease;
+    margin-left: 0.6vw;
+}
+
+.header-github:hover {
+    color: #fff;
 }
 
 .header-nav a:hover {
@@ -345,6 +362,14 @@ a {
 
 .release-link i {
     font-size: 0.9vw;
+}
+
+.release-icon {
+    width: 0.95vw;
+    height: 0.95vw;
+    min-width: 14px;
+    min-height: 14px;
+    vertical-align: middle;
 }
 
 /* TL;DR Card */
