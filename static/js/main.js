@@ -346,7 +346,7 @@ document.querySelectorAll('.relight-interactive').forEach(container => {
         'fire_and_embers', 'heavy_rain', 'blizzard_whiteout', 'sunset_dramatic',
         'autumn_warm', 'moonlit_night', 'dense_fog', 'volcanic_ash',
         'dusk_purple_haze', 'magic_particle_storm', 'toxic_green_fog',
-        'frozen_lens', 'lego', 'dawn_overcast', 'bright_sunny',
+        'frozen_lens', 'dawn_overcast', 'bright_sunny',
         'dust_haze', 'eclipse_darkness', 'extreme_bloom',
         'firefly_swarm', 'harsh_backlight', 'heat_distortion',
         'heavy_snowfall', 'ice_storm', 'lens_flare_overload',
