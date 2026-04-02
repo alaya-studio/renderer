@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative World Renderer | Alaya Studio</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header / Navbar -->
+<header class="site-header">
+    <div class="header-wrap">
+        <a href="#" class="logo">
+            <img src="static/images/logo.png" alt="Alaya Studio" class="logo-img">
+            <span class="logo-text"><span class="logo-bold">ALAYA</span> <span class="logo-light">STUDIO</span></span>
+        </a>
+        <!-- <nav class="header-nav">
+            <a href="#dataset">Dataset</a>
+            <a href="#pipeline">Pipeline</a>
+            <a href="#inverse-rendering">Results</a>
+        </nav> -->
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="article-hero">
+    <div class="hero-grid">
+        <div class="hero-text">
+            <!-- <div class="hero-tag">Technical Report</div> -->
+            <h1 class="hero-title"><span class="grad-accent">Generative<br>World Renderer</span></h1>
+            <!-- <p class="hero-subtitle">A large-scale dataset curated from game engines to scale generative inverse rendering to real-world, complex, dynamic scenes. 4M+ frames at 720p with synchronized G-buffers.</p> -->
+            <div class="hero-team-link"><a href="#team">Team</a></div>
+
+            <!-- Release Links Box -->
+            <div class="release-links">
+                <div class="release-links__title">Resources</div>
+                <div class="release-links__grid">
+                    <a class="release-link" href="#"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a class="release-link" href="#"><i class="fab fa-github"></i> Code</a>
+                    <a class="release-link" href="#"><i class="fas fa-database"></i> Dataset</a>
+                    <a class="release-link" href="#"><i class="fab fa-youtube"></i> Video</a>
+                </div>
+            </div>
+
+            <!-- TL;DR Card -->
+            <div class="tldr-card">
+                <div class="tldr-title">TL;DR</div>
+                <ul class="tldr-list">
+                    <li>We build a toolkit to extract G-buffers from commercial games</li>
+                    <li><strong>4M+ frames</strong> with 5 G-buffer channels from two AAA games at 720p, 30 FPS</li>
+                    <li>We set up a new baseline for generative world rendering</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="hero-media">
+            <video class="hero-video" id="heroVideo" controls loop playsinline preload="metadata">
+                <source src="static/videos/hero.mp4#t=17.55" type="video/mp4">
+            </video>
+            <div class="video-keyframes" id="videoKeyframes">
+                <span class="keyframe-dot" data-time="1.5"></span>
+                <span class="keyframe-dot" data-time="3.5"></span>
+                <span class="keyframe-dot" data-time="5.5"></span>
+                <span class="keyframe-dot" data-time="14"></span>
+                <span class="keyframe-dot" data-time="17.55"></span>
+                <span class="keyframe-dot" data-time="20"></span>
+                <span class="keyframe-dot" data-time="30"></span>
+                <span class="keyframe-dot" data-time="40"></span>
+                <span class="keyframe-dot" data-time="44"></span>
+                <span class="keyframe-dot" data-time="55"></span>
+                <span class="keyframe-dot" data-time="60"></span>
+                <span class="keyframe-dot" data-time="73"></span>
+                <span class="keyframe-dot" data-time="82"></span>
+                <span class="keyframe-dot" data-time="84"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Article Body -->
+<section class="article-body">
+    <div class="article-grid">
+
+        <!-- Main Content -->
+        <article class="article-content">
+
+
+            <!-- Dataset Overview -->
+            <!-- <h2 id="dataset">Dataset Overview</h2> -->
+
+            <div class="stats-scene">
+                <div class="stats-grid-bg"></div>
+                <div class="stats-header">
+                    <h3>Large-scale world rendering data</h3>
+                    <p class="stats-subtitle">We build a toolkit to extract G-buffers from commercial games</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card stat-card--highlight">
+                        <div class="stat-label">Total Frames</div>
+                        <div class="stat-value"><span class="js-count" data-count="4" data-suffix="M+">0</span></div>
+                    </div>
+                    <div class="stat-card stat-card--highlight">
+                        <div class="stat-label">G-Buffer Channels</div>
+                        <div class="stat-value"><span class="js-count" data-count="5" data-suffix="">0</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Resolution</div>
+                        <div class="stat-value"><span class="js-count" data-count="720" data-suffix="p">0</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Frame Rate</div>
+                        <div class="stat-value"><span class="js-count" data-count="30" data-suffix=" FPS">0</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Game Sources</div>
+                        <div class="stat-value"><span class="js-count" data-count="2" data-suffix="">0</span></div>
+                    </div>
+                    <div class="stat-card stat-card--highlight">
+                        <div class="stat-label">Total Playing Time</div>
+                        <div class="stat-value"><span class="js-count" data-count="40" data-suffix="h">0</span></div>
+                    </div>
+                    <div class="stat-card stat-card--highlight">
+                        <div class="stat-label">Avg Clip Duration</div>
+                        <div class="stat-value"><span class="js-count" data-count="474" data-suffix="s">0</span></div>
+                    </div>
+                    <div class="stat-card stat-card--highlight">
+                        <div class="stat-label">Max Clip Duration</div>
+                        <div class="stat-value"><span class="js-count" data-count="3163" data-suffix="s">0</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="col">
+                    <h3>Cyberpunk 2077</h3>
+                    <p>
+                        Metal-rich urban environments featuring diverse weather conditions (sunny, rainy, foggy, night, sunset),
+                        semi-automated driving trajectories, street walking, and indoor scenes.
+                    </p>
+                </div>
+                <div class="col">
+                    <h3>Black Myth: Wukong</h3>
+                    <p>
+                        Natural outdoor scenes with rough, diffuse materials. Exploration sequences covering diverse environments,
+                        varied appearances, and rich scene content without combat.
+                    </p>
+                </div>
+            </div>
+
+            <div class="gbuffer-channels">
+                <!-- <h3>Choose G-Buffer channels for visualization</h3> -->
+                 <h3>Our collected G-Buffer from game engine for world rendering</h3>
+                <div class="channel-grid" id="channelToggles">
+                    <button class="channel-toggle active" data-ch="rgb">RGB</button>
+                    <button class="channel-toggle active" data-ch="depth">Depth</button>
+                    <button class="channel-toggle active" data-ch="normal">Normal</button>
+                    <button class="channel-toggle active" data-ch="basecolor">Albedo</button>
+                    <button class="channel-toggle active" data-ch="metallic">Metallic</button>
+                    <button class="channel-toggle active" data-ch="roughness">Roughness</button>
+                </div>
+            </div>
+
+            <div class="carousel" id="datasetCarousel">
+                <div class="carousel-resize-controls">
+                    <button class="carousel-zoom-out" title="Zoom out">&minus;</button>
+                    <button class="carousel-zoom-in" title="Zoom in">&plus;</button>
+                </div>
+                <div class="carousel-slides">
+                    <div class="carousel-slide active" data-scene="sunny">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/sunny_"></div>
+                        <span class="gallery-caption">Cyberpunk 2077 &mdash; Sunny</span>
+                    </div>
+                    <div class="carousel-slide" data-scene="rainy">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/rainy_"></div>
+                        <span class="gallery-caption">Cyberpunk 2077 &mdash; Rainy</span>
+                    </div>
+                    <div class="carousel-slide" data-scene="foggy">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/foggy_"></div>
+                        <span class="gallery-caption">Cyberpunk 2077 &mdash; Foggy</span>
+                    </div>
+                    <div class="carousel-slide" data-scene="indoor">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/indoor_"></div>
+                        <span class="gallery-caption">Cyberpunk 2077 &mdash; Indoor</span>
+                    </div>
+                    <div class="carousel-slide" data-scene="outdoor">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/outdoor_"></div>
+                        <span class="gallery-caption">Cyberpunk 2077 &mdash; Outdoor</span>
+                    </div>
+                    <div class="carousel-slide" data-scene="bmw_forest">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/bmw_forest_"></div>
+                        <span class="gallery-caption">Black Myth: Wukong &mdash; Forest</span>
+                    </div>
+                    <div class="carousel-slide" data-scene="bmw_snow">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/bmw_snow_"></div>
+                        <span class="gallery-caption">Black Myth: Wukong &mdash; Snow</span>
+                    </div>
+                    <div class="carousel-slide" data-scene="bmw_sunset">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/bmw_sunset_"></div>
+                        <span class="gallery-caption">Black Myth: Wukong &mdash; Sunset</span>
+                    </div>
+                    <div class="carousel-slide" data-scene="bmw_cave">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/bmw_cave_"></div>
+                        <span class="gallery-caption">Black Myth: Wukong &mdash; Cave</span>
+                    </div>
+                    <div class="carousel-slide" data-scene="bmw_autumn">
+                        <div class="ch-slider" data-channels="rgb,depth,normal,basecolor,metallic,roughness" data-prefix="static/videos/dataset/bmw_autumn_"></div>
+                        <span class="gallery-caption">Black Myth: Wukong &mdash; Autumn</span>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <span class="carousel-arrow carousel-prev">&lsaquo;</span>
+                    <div class="carousel-dots"></div>
+                    <span class="carousel-arrow carousel-next">&rsaquo;</span>
+                </div>
+            </div>
+
+            <!-- Pipeline -->
+            <!-- <h2 id="pipeline">Data Curation Pipeline</h2>
+            <div class="pipeline-image">
+                <img src="static/images/pipeline.png" alt="Three-stage pipeline: Curation, Analysis, Post-Processing">
+            </div>
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <h3><span class="stage-num">I</span> Curation</h3>
+                    <p>Intercept G-buffers via ReShade from commercial game engines. Automated filtering identifies valid buffers from thousands of candidates using metadata invariants and RenderDoc inspection.</p>
+                </div>
+                <div class="stage">
+                    <h3><span class="stage-num">II</span> Analysis</h3>
+                    <p>Annotate meta-information (texture, weather, scene, motion) using VLM. Filter out static and low-luminance frames based on quality criteria.</p>
+                </div>
+                <div class="stage">
+                    <h3><span class="stage-num">III</span> Post-Processing</h3>
+                    <p>Synthesize motion blur via 8&times; sub-frame interpolation (RIFE) and linear-domain temporal averaging to bridge the sim-to-real gap.</p>
+                </div>
+            </div> -->
+
+            <!-- Game Editing Results -->
+            <h2 id="game-editing">Game editing</h2>
+            <p>
+              By extracting the G-buffer from a commercial game using our toolkit, our renderer can stylize or modify the game environment based on user prompts.
+            </p>
+
+            <div class="style-selector" id="styleSelector"></div>
+
+            <div class="carousel" id="editingCarousel">
+                <div class="carousel-resize-controls">
+                    <button class="carousel-zoom-out" title="Zoom out">&minus;</button>
+                    <button class="carousel-zoom-in" title="Zoom in">&plus;</button>
+                </div>
+                <div class="carousel-slides">
+                    <div class="carousel-slide active" data-clip="2025-12-28_18-31-21_clip22">
+                        <div class="edit-slider">
+                            <video class="edit-slider__input" loop muted playsinline></video>
+                            <video class="edit-slider__result" loop muted playsinline></video>
+                            <div class="edit-slider__handle"></div>
+                            <span class="ch-slider-label edit-label-left">Original Rendering</span>
+                            <span class="ch-slider-label edit-label-right"></span>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" data-clip="2025-12-28_17-09-06_clip18">
+                        <div class="edit-slider">
+                            <video class="edit-slider__input" loop muted playsinline></video>
+                            <video class="edit-slider__result" loop muted playsinline></video>
+                            <div class="edit-slider__handle"></div>
+                            <span class="ch-slider-label edit-label-left">Original Rendering</span>
+                            <span class="ch-slider-label edit-label-right"></span>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" data-clip="2025-12-28_17-53-47_clip20">
+                        <div class="edit-slider">
+                            <video class="edit-slider__input" loop muted playsinline></video>
+                            <video class="edit-slider__result" loop muted playsinline></video>
+                            <div class="edit-slider__handle"></div>
+                            <span class="ch-slider-label edit-label-left">Original Rendering</span>
+                            <span class="ch-slider-label edit-label-right"></span>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" data-clip="2077_2025-11-28_19-57-23_clip">
+                        <div class="edit-slider">
+                            <video class="edit-slider__input" loop muted playsinline></video>
+                            <video class="edit-slider__result" loop muted playsinline></video>
+                            <div class="edit-slider__handle"></div>
+                            <span class="ch-slider-label edit-label-left">Original Rendering</span>
+                            <span class="ch-slider-label edit-label-right"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <span class="carousel-arrow carousel-prev">&lsaquo;</span>
+                    <div class="carousel-dots"></div>
+                    <span class="carousel-arrow carousel-next">&rsaquo;</span>
+                </div>
+            </div>
+
+            <!-- Inverse Rendering Results -->
+            <h2 id="inverse-rendering">Better inverse rendering results</h2>
+            <p>
+                Our fine-tuned model produces cleaner albedo with better delighting, artifact-free geometry,
+                and robust material predictions that effectively resist complex outdoor illumination and atmospheric disruptions.
+            </p>
+
+            <div class="inverse-controls">
+                <div class="inverse-group">
+                    <span class="inverse-group__label">Scene</span>
+                    <div class="inverse-scene-btns" id="inverseSceneSelector">
+                        <button class="scene-btn active" data-scene="outdoor">Outdoor</button>
+                        <button class="scene-btn" data-scene="ai">AI-Generated</button>
+                        <button class="scene-btn" data-scene="indoor">Indoor</button>
+                    </div>
+                </div>
+                <div class="inverse-group">
+                    <span class="inverse-group__label">Channel</span>
+                    <div class="inverse-channel-btns" id="inverseChannelSelector">
+                        <button class="channel-btn active" data-ch="albedo">Albedo</button>
+                        <button class="channel-btn" data-ch="depth">Depth</button>
+                        <button class="channel-btn" data-ch="normal">Normal</button>
+                        <button class="channel-btn" data-ch="metallic">Metallic</button>
+                        <button class="channel-btn" data-ch="roughness">Roughness</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inverse-video-wrap">
+                <div class="inverse-labels">
+                    <span><span>Input</span></span>
+                    <span><span>DiffusionRenderer</span></span>
+                    <span><span>Ours</span></span>
+                </div>
+                <video id="invVideo" controls loop muted playsinline autoplay src="static/videos/inverse/outdoor_albedo_merged.mp4"></video>
+            </div>
+
+            <!-- Relighting -->
+            <h2 id="relighting">Video relighting</h2>
+            <p>
+                Using the G-buffers estimated by our inverse renderer, we synthesize relit images using diverse environment maps
+                with DiffusionRenderer's frozen forward renderer. Our improved G-buffers yield significantly better
+                illumination consistency, especially in sky regions.
+            </p>
+
+            <div class="carousel" id="relightCarousel">
+                <div class="carousel-resize-controls">
+                    <button class="carousel-zoom-out" title="Zoom out">&minus;</button>
+                    <button class="carousel-zoom-in" title="Zoom in">&plus;</button>
+                </div>
+                <div class="carousel-slides">
+                    <div class="carousel-slide active">
+                        <div class="relight-interactive">
+                            <div class="relight-dial">
+                                <svg class="relight-dial__svg" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+                                    <circle cx="100" cy="100" r="60" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                                    <circle class="relight-sun" cx="185" cy="100" r="10" fill="var(--accent)"/>
+                                </svg>
+                                <span class="relight-dial__label">Drag to rotate light</span>
+                            </div>
+                            <div class="relight-result">
+                                <video muted playsinline loop data-relight-video src="static/videos/relighting/relit_demo.mp4"></video>
+                            </div>
+                        </div>
+                        <span class="gallery-caption">Scene 1</span>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="relight-interactive">
+                            <div class="relight-dial">
+                                <svg class="relight-dial__svg" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+                                    <circle cx="100" cy="100" r="60" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                                    <circle class="relight-sun" cx="185" cy="100" r="10" fill="var(--accent)"/>
+                                </svg>
+                                <span class="relight-dial__label">Drag to rotate light</span>
+                            </div>
+                            <div class="relight-result">
+                                <video muted playsinline loop data-relight-video src="static/videos/relighting/relit_demo2.mp4"></video>
+                            </div>
+                        </div>
+                        <span class="gallery-caption">Scene 2</span>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <span class="carousel-arrow carousel-prev">&lsaquo;</span>
+                    <div class="carousel-dots"></div>
+                    <span class="carousel-arrow carousel-next">&rsaquo;</span>
+                </div>
+            </div>
+
+            <!-- Quantitative Results -->
+            <!-- <h2 id="results">Quantitative Results</h2> -->
+
+            <!-- <h3>Black Myth: Wukong Benchmark</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Method</th>
+                            <th colspan="3">Depth</th>
+                            <th colspan="2">Normals</th>
+                            <th colspan="2">Albedo</th>
+                            <th colspan="2">Metallic</th>
+                            <th colspan="2">Roughness</th>
+                        </tr>
+                        <tr>
+                            <th>Abs Rel&darr;</th><th>RMSE&darr;</th><th>&delta;&lt;1.25&uarr;</th>
+                            <th>Ang. Err.&darr;</th><th>Acc@11.25&deg;&uarr;</th>
+                            <th>PSNR&uarr;</th><th>LPIPS&darr;</th>
+                            <th>RMSE&darr;</th><th>MAE&darr;</th>
+                            <th>RMSE&darr;</th><th>MAE&darr;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>RGB&harr;X</td><td>-</td><td>-</td><td>-</td><td>78.05&deg;</td><td>0.035</td><td>8.74</td><td>0.619</td><td>0.510</td><td>0.503</td><td>0.349</td><td>0.313</td></tr>
+                        <tr><td>DNF-Intrinsic</td><td>0.862</td><td>0.026</td><td>0.361</td><td>53.21&deg;</td><td>0.065</td><td>13.84</td><td>0.702</td><td>0.245</td><td>0.183</td><td>0.566</td><td>0.543</td></tr>
+                        <tr><td>DiffusionRenderer</td><td>1.118</td><td>0.030</td><td>0.267</td><td>45.01&deg;</td><td>0.110</td><td>17.53</td><td>0.648</td><td>0.230</td><td>0.134</td><td>0.281</td><td>0.237</td></tr>
+                        <tr class="highlight-row"><td><strong>Ours</strong></td><td><strong>0.697</strong></td><td><strong>0.023</strong></td><td><strong>0.609</strong></td><td><strong>42.57&deg;</strong></td><td><strong>0.150</strong></td><td>16.44</td><td><strong>0.628</strong></td><td><strong>0.104</strong></td><td><strong>0.024</strong></td><td><strong>0.266</strong></td><td><strong>0.218</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>MPI-Sintel Benchmark</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Method</th>
+                            <th colspan="3">Depth</th>
+                            <th colspan="4">Albedo</th>
+                        </tr>
+                        <tr>
+                            <th>RMSE&darr;</th><th>RMSE log&darr;</th><th>&delta;&lt;1.25&uarr;</th>
+                            <th>PSNR&uarr;</th><th>LPIPS&darr;</th><th>si-PSNR&uarr;</th><th>si-LPIPS&darr;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>RGB&harr;X</td><td>-</td><td>-</td><td>-</td><td>8.69</td><td>0.613</td><td>16.69</td><td>0.595</td></tr>
+                        <tr><td>DNF-Intrinsic</td><td>0.249</td><td>1.090</td><td>0.371</td><td>13.16</td><td>0.546</td><td>13.68</td><td>0.535</td></tr>
+                        <tr><td>DiffusionRenderer</td><td>0.268</td><td>0.911</td><td>0.331</td><td>14.87</td><td>0.505</td><td>17.46</td><td>0.497</td></tr>
+                        <tr class="highlight-row"><td><strong>Ours</strong></td><td><strong>0.220</strong></td><td><strong>0.745</strong></td><td><strong>0.478</strong></td><td><strong>15.40</strong></td><td><strong>0.486</strong></td><td><strong>17.80</strong></td><td><strong>0.491</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>VLM Evaluation on Real-World Videos</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th></th><th>Method</th><th>Semantic&darr;</th><th>Appearance&darr;</th><th>Temporal&darr;</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td rowspan="3"><strong>Roughness</strong></td><td>DiffusionRenderer</td><td>2.45</td><td>2.40</td><td>2.10</td></tr>
+                        <tr><td>Ours</td><td><strong>1.78</strong></td><td><strong>1.78</strong></td><td>2.08</td></tr>
+                        <tr class="highlight-row"><td>Ours (w/ MB)</td><td><strong>1.78</strong></td><td>1.83</td><td><strong>1.83</strong></td></tr>
+                        <tr><td rowspan="3"><strong>Metallic</strong></td><td>DiffusionRenderer</td><td>2.35</td><td>2.28</td><td>2.00</td></tr>
+                        <tr><td>Ours</td><td>1.90</td><td>2.13</td><td>2.15</td></tr>
+                        <tr class="highlight-row"><td>Ours (w/ MB)</td><td><strong>1.75</strong></td><td><strong>1.60</strong></td><td><strong>1.85</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+ -->
+
+
+
+        </article>
+    </div>
+</section>
+
+<!-- Team -->
+<section class="team-section" id="team">
+    <div class="team-wrap">
+        <button class="team-toggle" id="teamToggle">
+            <h2>Team</h2>
+            <span class="team-toggle__icon">&#x25BC;</span>
+        </button>
+        <div class="team-content" id="teamContent">
+            <div class="team-authors">
+                <span>Zheng-Hui Huang<sup>1,2</sup></span>
+                <span>Zhixiang Wang<sup>1,*</sup></span>
+                <span>Jiaming Tan<sup>1</sup></span>
+                <span>Ruihan Yu<sup>1,3</sup></span>
+                <span>Yidan Zhang<sup>1,3</sup></span>
+                <span>Bo Zheng<sup>1</sup></span>
+                <span>Yu-Lun Liu<sup>4</sup></span>
+                <span>Yung-Yu Chuang<sup>2</sup></span>
+                <span>Kaipeng Zhang<sup>1</sup></span>
+            </div>
+            <div class="team-affiliations">
+                <span><sup>1</sup>Alaya Studio, Shanda AI Research Tokyo</span>
+                <span><sup>2</sup>National Taiwan University</span>
+                <span><sup>3</sup>The University of Tokyo</span>
+                <span><sup>4</sup>National Yang Ming Chiao Tung University</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-inner">
+        <!-- <p>A Scaling Recipe for Video Generative Renderer &mdash; Alaya Studio Technical Report, 2026</p> -->
+    </div>
+</footer>
+
+<script src="static/js/main.js"></script>
+
+</body>
+</html>
