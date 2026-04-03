@@ -1902,6 +1902,10 @@ footer {
         font-size: 1.8rem;
     }
 
+    .hero-team-link {
+        font-size: 14px;
+    }
+
     .hero-subtitle,
     .article-content > p {
         font-size: 0.95rem;
@@ -1912,44 +1916,7 @@ footer {
         font-size: 0.85rem;
     }
 
-    .stats-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 2vw;
-    }
-
-    .stat-card {
-        min-height: 24vw;
-        padding: 2.2vw;
-    }
-
-    .stat-label { font-size: 2.6vw; }
-    .stat-value { font-size: 5.2vw; }
-
-    .pipeline-stages {
-        grid-template-columns: 1fr;
-    }
-
-    .two-col {
-        grid-template-columns: 1fr;
-    }
-
-    .video-row {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .dataset-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .header-nav {
-        display: none;
-    }
-
-    .stats-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
+    /* Release links */
     .release-links {
         margin-top: 16px;
         padding: 14px;
@@ -1959,6 +1926,7 @@ footer {
     .release-links__title { font-size: 11px; }
 
     .release-links__grid {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 8px;
     }
@@ -1970,15 +1938,123 @@ footer {
         font-size: 13px;
     }
 
-    .tab-btn, .channel-btn {
-        font-size: 0.85rem;
-        padding: 8px 16px;
+    .release-link i {
+        font-size: 14px;
     }
 
-    .toc-title, .tldr-title {
-        font-size: 0.75rem;
+    .release-icon {
+        width: 14px;
+        height: 14px;
     }
 
+    /* TL;DR */
+    .tldr-card {
+        padding: 16px;
+        margin-top: 16px;
+        border-radius: 12px;
+    }
+
+    .tldr-title {
+        font-size: 12px;
+    }
+
+    .tldr-list li {
+        font-size: 14px;
+        padding-left: 16px;
+    }
+
+    .tldr-list li::before {
+        top: 7px;
+        width: 5px;
+        height: 5px;
+    }
+
+    /* Stats */
+    .stats-scene {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .stats-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stats-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .stats-subtitle {
+        font-size: 14px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .stat-card {
+        min-height: 80px;
+        padding: 10px;
+    }
+
+    .stat-label { font-size: 11px; }
+    .stat-value { font-size: 20px; }
+
+    /* Two col */
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .col {
+        padding: 16px;
+    }
+
+    .col h3 { font-size: 15px; }
+    .col p { font-size: 14px; }
+
+    /* Channel toggles */
+    .gbuffer-channels h3 {
+        font-size: 14px;
+    }
+
+    .channel-toggle {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+
+    .channel-grid {
+        gap: 6px;
+    }
+
+    /* Carousel */
+    .carousel-resize-controls {
+        display: none;
+    }
+
+    .gallery-caption {
+        font-size: 12px;
+    }
+
+    .carousel-arrow {
+        font-size: 20px;
+        min-width: 24px;
+        min-height: 24px;
+    }
+
+    .carousel-dot {
+        min-width: 6px;
+        min-height: 6px;
+    }
+
+    /* Channel slider labels */
+    .ch-slider-label {
+        font-size: 9px;
+        padding: 2px 6px;
+    }
+
+    /* Section headings */
     .article-content > h2 {
         font-size: 1.4rem;
     }
@@ -1986,18 +2062,155 @@ footer {
     h3 {
         font-size: 1.1rem;
     }
-}
 
-@media (max-width: 480px) {
-    .stats-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* Style selector */
+    .style-selector {
+        gap: 6px;
     }
 
+    .style-selector__label {
+        font-size: 12px;
+    }
+
+    .style-btn, .method-btn, .scene-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* Inverse controls */
+    .inverse-controls {
+        gap: 10px;
+    }
+
+    .inverse-group {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .inverse-group__label {
+        font-size: 11px;
+    }
+
+    .inverse-labels span span {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+    /* Edit slider labels */
+    .edit-label-left,
+    .edit-label-right {
+        font-size: 10px !important;
+    }
+
+    /* Tab/channel buttons */
+    .tab-btn, .channel-btn {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+
+    /* Video row */
     .video-row {
         grid-template-columns: 1fr;
     }
 
+    .video-row--3col {
+        grid-template-columns: 1fr;
+    }
+
+    .video-label {
+        font-size: 11px;
+    }
+
+    /* Keyframes */
+    .video-keyframes {
+        gap: 6px;
+        padding: 6px 0;
+    }
+
+    .keyframe-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    /* Relight */
+    .relight-interactive {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .relight-dial__svg {
+        min-width: 100px;
+        width: 100px;
+    }
+
+    .relight-dial__label {
+        font-size: 11px;
+    }
+
+    .relight-result {
+        max-width: 100%;
+    }
+
+    /* Team */
+    .team-section {
+        padding: 32px 0 16px;
+    }
+
+    .team-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .team-authors span {
+        font-size: 14px;
+    }
+
+    .team-affiliations {
+        font-size: 12px;
+    }
+
+    /* Header nav */
+    .header-nav {
+        display: none;
+    }
+
+    .header-github {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    /* Footer */
+    footer {
+        font-size: 12px;
+        padding: 16px;
+    }
+
+    /* Pipeline */
+    .pipeline-stages {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
     .release-links__grid {
         grid-template-columns: 1fr;
+    }
+
+    .style-selector__btns {
+        gap: 4px;
+    }
+
+    .style-btn, .scene-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .inverse-scene-btns,
+    .inverse-channel-btns {
+        gap: 4px;
+    }
+
+    .channel-btn {
+        padding: 5px 10px;
+        font-size: 11px;
     }
 }
