@@ -2168,7 +2168,22 @@ footer {
         font-size: 12px;
     }
 
-    /* Header nav */
+    /* Header */
+    .logo {
+        gap: 8px;
+    }
+
+    .logo-img {
+        height: 24px;
+        min-height: 24px;
+        padding: 4px;
+        border-radius: 4px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
     .header-nav {
         display: none;
     }
